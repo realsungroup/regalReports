@@ -1,0 +1,300 @@
+@import url('../../../styles/variables.less');
+.task-notice-body-left-panel {
+  width: 33%;
+  border-right: solid #999 4px;
+}
+
+.task-notice-body-right-panel {
+  width: 66%;
+}
+
+.task-notice-header-tab {
+  border-bottom: solid #999 1px;
+}
+
+.task-notice-header-option {
+  display: inline-block;
+  width: 50%;
+  font-size: 14px;
+}
+
+.task-notice-header-option:not(:last-child) {
+  border-right: solid #999 1px;
+}
+
+.task-notice-header-option-view {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.task-notice-header-option-view-active {
+  color: skyblue;
+  background-color: #fff;
+}
+
+.task-notice-header-option-view-inactive {
+  color: #333;
+  background-color: #ccc;
+}
+
+.task-notice-operation {
+  padding: 12px 16px 8px;
+  width: 100%;
+  position: relative;
+}
+
+.task-notice-operation-btn,
+.task-notice-operation-btn-icon,
+.task-notice-operation-btn-text {
+  display: inline-block;
+  vertical-align: middle;
+  color: #1296db;
+  cursor: pointer;
+}
+
+.task-notice-operation-btn-icon {
+  height: 14px;
+}
+
+.task-notice-operation-btn-text {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.task-notice-operation-checkbox {
+  position: absolute;
+  right: 21px;
+  top: 16px;
+}
+
+.task-notice-record-search-box {
+  padding: 12px 16px 8px;
+  width: 70%;
+}
+
+.task-notice-body {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  .task-notice-body-header {
+    height: 70px;
+    line-height: 70px;
+    background: @primary-color;
+    color: @primary-color;
+    text-align: center;
+    position: relative;
+  }
+  .task-notice-body-body {
+    width: 1320px;
+    margin: 0 auto;
+    position: relative;
+    top: -40px;
+  }
+  .task-notice-body-title {
+    font-size: 20px;
+    position: relative;
+    top: -10px;
+    color: #fff;
+  }
+  .back-btn {
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    color: #fff;
+  }
+  .wrap {
+    height: calc(100vh - 190px);
+    border-radius: @border-radius-1;
+    background: #fff;
+    &.max {
+      position: absolute;
+      left: 0;
+      top: 22px;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  .wrap-header {
+    height: 64px;
+    line-height: 64px;
+    background: #fff;
+    border-radius: @border-radius-1 @border-radius-1 0 0;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    .wrap-header-title {
+      font-weight: bold;
+    }
+    .wrap-header-btns {
+      i {
+        font-size: 18px;
+        margin: 0 4px;
+        cursor: pointer;
+      }
+    }
+    .btn {
+      border-bottom: 2px solid @border-color;
+      display: inline-block;
+      width: 50%;
+      &.selected {
+        border-bottom: solid 2px @primary-color;
+      }
+    }
+    .wait-deal {
+      border-radius: @border-radius-1 0 0 0;
+    }
+    .has-deal {
+      border-radius: 0 @border-radius-1 0 0;
+    }
+    &.title {
+      border-bottom: 2px solid @border-color;
+      cursor: default;
+    }
+  }
+  .task-item {
+    &.selected {
+      background: #ecf5ff;
+      .detail .text-wrap::after {
+        float: right;
+        content: '...';
+        height: 20px;
+        line-height: 20px;
+        text-align: right;
+        width: 40px;
+        margin-left: -40px;
+        position: relative;
+        left: 100%;
+        top: -20px;
+        padding-right: 5px;
+        box-sizing: content-box;
+        /* 显示更好的效果 */
+        background: -webkit-gradient( linear, left top, right top, from(rgba(255, 255, 255, 0)), to(#ecf5ff), color-stop(50%, #ecf5ff));
+      }
+    }
+    display: flex;
+    height: 110px;
+    padding-top: 15px;
+    border-bottom: 1px solid #ecf5ff;
+    transition: 0.3s;
+    cursor: pointer;
+    .checkbox,
+    .task-item-icon,
+    .detail {
+      display: inline-block;
+      /* 多行溢出隐藏 */
+      .text-wrap {
+        height: 60px;
+        line-height: 20px;
+        overflow: hidden;
+        & .text {
+          float: right;
+          margin-left: -5px;
+          width: 100%;
+          word-break: break-all;
+        }
+        &::before {
+          float: left;
+          width: 5px;
+          content: '';
+          height: 60px;
+        }
+        &::after {
+          float: right;
+          content: '...';
+          height: 20px;
+          line-height: 20px;
+          text-align: right;
+          width: 40px;
+          margin-left: -40px;
+          position: relative;
+          left: 100%;
+          top: -20px;
+          padding-right: 5px;
+          box-sizing: content-box;
+          /* 显示更好的效果 */
+          background: -webkit-gradient( linear, left top, right top, from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white));
+        }
+      }
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .task-item-icon {
+      width: 90px;
+      height: 90px;
+      text-align: center;
+      line-height: 90px;
+    }
+    .detail {
+      width: 380px;
+    }
+    .checkbox {
+      width: 120px;
+      line-height: 28px;
+      text-align: center;
+    }
+  }
+  .task-list {
+    margin-top: 2px;
+    background: #fff;
+    border-radius: 0 0 @border-radius-1 @border-radius-1;
+    padding: 20px;
+  }
+  .task-list-header {
+    height: 44px;
+    line-height: 44px;
+    border-bottom: 1px solid #e8ecef;
+    text-align: justify;
+    display: flex;
+    justify-content: space-between;
+    .operation {}
+    .select-all {
+      margin-right: 13px;
+    }
+  }
+  .task-list-body {
+    overflow: auto;
+    height: ~'calc(100vh - 312px)';
+  }
+  .wrap-detail {
+    padding: 20px;
+    height: ~'calc(100vh - 226px)';
+    background: #fff;
+    border-radius: 0 0 @border-radius-1 @border-radius-1;
+    overflow: auto;
+  }
+  .load-more {
+    text-align: center;
+    padding: 10px;
+    .no-more-data {
+      color: #ccc;
+    }
+  }
+}
+
+// @media print {
+//   body * {
+//     visibility: hidden;
+//   }
+//   #wrap-detail,
+//   #wrap-detail * {
+//     visibility: visible;
+//   }
+//   #wrap-detail {
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//   }
+// }

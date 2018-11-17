@@ -1,0 +1,27 @@
+@import url('../../../../styles/variables.less');
+.lz-modal {
+  top: 50px;
+  .icon-scale-max,
+  .icon-scale-normal {
+    cursor: pointer;
+  }
+  .ant-modal-title div {
+    overflow: hidden;
+  }
+  .scale-btn {
+    float: right;
+    margin-right: 40px;
+  }
+  .ant-modal-content {
+    height: 100%;
+  }
+  .ant-modal-body {
+    padding: 0;
+    height: ~"calc(100% - 55px)";
+    overflow: hidden;
+  }
+  &.top0 {
+    top: 0;
+    padding: 0;
+  }
+}

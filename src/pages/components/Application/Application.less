@@ -1,0 +1,66 @@
+@import url('../../../styles/variables.less');
+.app {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  padding: 8px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.app-active {
+  cursor: pointer;
+}
+
+.app-active:hover {
+  background-color: aliceblue;
+}
+
+.app-icon-wrapper {
+  width: 70%;
+  height: 70%;
+  margin: 0 auto;
+}
+
+.app-icon {
+  max-width: 100%;
+  height: 100%;
+  text-align: center;
+  .iconfont {
+    color: @primary-color;
+    font-size: 40px;
+  }
+}
+
+.app-icon .iconfont {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.app-title-wrapper {
+  height: 30%;
+}
+
+.app-icon::after,
+.app-title-wrapper::after {
+  display: inline-block;
+  content: "";
+  height: 100%;
+}
+
+.app-title-wrapper::after {
+  vertical-align: bottom;
+}
+
+.app-icon::after {
+  vertical-align: middle;
+}
+
+.app-title {
+  width: 84px;
+  display: inline-block;
+  color: #999;
+  font-size: 14px;
+  height: 40px;
+  vertical-align: bottom;
+}

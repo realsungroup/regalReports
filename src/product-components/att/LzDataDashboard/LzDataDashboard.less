@@ -1,0 +1,36 @@
+@import url('../../../styles/variables.less');
+.lz-data-dashboard {
+  padding: 20px 40px;
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__card {
+    width: 45%;
+  }
+  &__cards-extra {
+    color: @primary-color;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  &__cards-content {
+    display: flex;
+    justify-content: space-between;
+    line-height: 30px;
+    font-size: 16px;
+    span:last-child {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+  &__date-picker {
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    .icon-rili {
+      margin: 0 4px;
+      font-size: 30px;
+      color: @primary-color;
+    }
+  }
+}

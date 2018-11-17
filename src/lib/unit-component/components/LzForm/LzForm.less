@@ -1,0 +1,75 @@
+@import url('../../../../styles/variables.less');
+.lz-form {
+  height: 100%;
+  transition: 0.3s;
+  background: #fff;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  &__subtable-wrap {
+    width: 50%;
+    overflow: auto;
+    min-height: 100px;
+    max-height: 620px;
+  }
+  /* layout: default */
+  .lz-form-header,
+  .lz-form-footer {
+    height: 54px;
+    line-height: 54px;
+    padding: 0 16px;
+  }
+  .lz-form-header {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 10px 10px 0 0;
+  }
+  .lz-form-footer {
+    height: 54px;
+    line-height: 54px;
+    border-top: 1px solid @border-color;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 0 0 10px 10px;
+    button {
+      margin: 0 6px;
+    }
+  }
+  .lz-form-body {
+    display: flex;
+    padding: 16px;
+    flex: 1;
+    overflow: auto;
+    min-height: 100px;
+    max-height: 620px;
+    &__form {
+      width: 100%;
+    }
+    &__left-form {
+      width: 50%;
+      overflow: auto;
+      min-height: 100px;
+      max-height: 620px;
+    }
+  }
+  .lz-form-min {
+    .lz-form-min-header {
+      height: 66px;
+      border: 1px solid @primary-color;
+      border-radius: @border-radius-2;
+    }
+  }
+  /* formSubTable */
+  .classify-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    &::before {
+    }
+  }
+}
+
+.ant-modal-content {
+  border-radius: 10px;
+}

@@ -1,0 +1,19 @@
+.workbench-setting-optional-app {
+  padding: 5px 10px;
+}
+
+.workbench-setting-optional-app-checkbox,
+.workbench-setting-optional-app-label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.workbench-setting-optional-app-checkbox {
+  margin: 0;
+  font-size: 16px;
+}
+
+.workbench-setting-optional-app-label {
+  margin-left: 12px;
+  font-size: 14px;
+}

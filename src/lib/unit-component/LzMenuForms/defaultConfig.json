@@ -1,0 +1,53 @@
+{
+  "mode": "multiple",
+  "advSearchConfig": {
+    "defaultVisible": false,
+    "containerName": "drawer",
+    "drawerWidth": 500,
+    "labelWidth": "24%",
+    "rowWidth": "100%",
+    "dateRanges": [
+      {
+        "title": "事件日期",
+        "visible": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "innerFieldName": "C3_591545408070"
+      }
+    ]
+  },
+  "searchFields": [
+    {
+      "text": "工号",
+      "innerFieldName": "C3_227192472953"
+    }
+  ],
+  "navListResid": 591533333401,
+  "resid": 591533160636,
+  "hasFieldsLabel": false,
+  "userFieldsViewConfig": {
+    "mode": "inline",
+    "colCount": 2
+  },
+  "userInfoFields": [
+    {
+      "label": "姓名",
+      "innerFieldName": "C3_227192484125"
+    },
+    {
+      "label": "工号",
+      "innerFieldName": "C3_227192472953"
+    },
+    {
+      "label": "职务",
+      "innerFieldName": "C3_417990929305"
+    },
+    {
+      "label": "部门",
+      "innerFieldName": "C3_227212499515"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+@import url('../../../styles/variables.less');
+.home-title {
+  height: 100%;
+  &__avatar {
+    margin-right: 10px;
+    background: @primary-color  !important;
+  }
+}
+
+.home-title::after {
+  display: inline-block;
+  content: '';
+  height: 100%;
+  vertical-align: middle;
+}
+
+.home-title-head-img,
+.home-title-content {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.home-title-content {
+  text-align: left;
+}
+
+.home-title-name {
+  font-size: 16px;
+  color: @primary-color !important;
+}
+
+.home-title-rank {
+  font-size: 14px;
+  color: #999;
+}

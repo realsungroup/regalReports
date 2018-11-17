@@ -1,0 +1,46 @@
+@import url('../../../../../styles/variables.less');
+
+.lz-form-bar-mode-container {
+  // background: #e2f6ff;
+  .bar-mode-header {
+    height: 66px;
+    border: 1px solid @primary-color;
+    border-radius: @border-radius-4;
+    display: flex;
+    padding: 0 10px;
+
+    justify-content: space-between;
+    .bar-mode-header-fields {
+      display: flex;
+      align-items: center;
+      .ant-form-item {
+        margin-bottom: 0;
+      }
+      .ant-col-14 {
+        width: 100%;
+      }
+    }
+    .bar-mode-header-operations {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .bar-mode-body {
+    border: 1px solid @primary-color;
+    border-radius: @border-radius-4;
+    transition: 0.3s;
+    &.hide {
+      display: none;
+    }
+    &.show {
+      display: block;
+    }
+  }
+  .expand-btn {
+    cursor: pointer;
+    color: @primary-color;
+    height: 16px;
+    width: 16px;
+    color: #000;
+  }
+}

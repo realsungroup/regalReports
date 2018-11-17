@@ -1,0 +1,69 @@
+.lz-app-selector {
+  .header {
+    text-align: center;
+  }
+}
+
+.workbench-setting-app-selector-header {
+  position: relative;
+  color: #1296db;
+  margin-bottom: 20px;
+}
+
+.workbench-setting-app-selector-title {
+  text-align: center;
+}
+
+.workbench-setting-app-selector-btns {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.workbench-setting-app-selector-btns::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.workbench-setting-app-selector-close-btn,
+.workbench-setting-app-selector-full-screen-btn {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.workbench-setting-app-selector-close-btn {
+  height: 60%;
+  margin-right: 8px;
+}
+
+.workbench-setting-app-selector-full-screen-btn {
+  height: 80%;
+}
+
+.workbench-setting-app-selector-apps {
+  height: calc(100% - 135px);
+  padding: 10px 20px;
+  overflow-y: auto;
+}
+
+.workbench-setting-app-selector-search-box {
+  margin: 10px 0;
+}
+
+.workbench-setting-app-selector-confirm-btn-wrapper {
+  text-align: right;
+}
+
+.workbench-setting-app-selector-confirm-btn {
+  color: #1296db;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block;
+  border: solid thin #ccc;
+  border-radius: 4px;
+  padding: 4px 28px;
+}

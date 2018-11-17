@@ -1,0 +1,38 @@
+@import '../../../styles/variables.less';
+.unit-one {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: '#eee';
+  z-index: 10;
+  .unit-one-header {
+    background: @primary-color;
+    height: 70px;
+    line-height: 70px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+  }
+  .unit-one-header span {
+    margin: 0 10px;
+  }
+  .unit-one-header .back-btn {
+    cursor: pointer;
+    float: left;
+    margin-left: 10px;
+  }
+  .unit-one-header .header-title {
+    font-size: 20px;
+    position: relative;
+    top: -10px;
+  }
+  .unit-one-body {
+    position: absolute;
+    left: 0;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+  }
+}

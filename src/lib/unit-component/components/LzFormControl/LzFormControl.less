@@ -1,0 +1,30 @@
+@import url('../../../../styles/variables.less');
+.lz-form-control {
+  .unit {
+    height: 32px;
+    padding: 0 4px;
+    line-height: 32px;
+    margin-left: 2px;
+    background: @primary-color;
+    border-radius: @border-radius-4;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .lz-form-control-view {
+    .anticon.anticon-delete {
+      display: none;
+    }
+  }
+  &__select {
+    min-width: 100px;
+  }
+}
+
+.lz-form-item-absolute {
+  position: absolute;
+}
+
+.lz-form-control-img {
+  width: 50%;
+  cursor: pointer;
+}

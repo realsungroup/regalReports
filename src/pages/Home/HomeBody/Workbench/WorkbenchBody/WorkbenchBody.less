@@ -1,0 +1,41 @@
+@import url('../../../../../styles/variables.less');
+.home-workbench-body {
+  width: 100%;
+  padding: 10px 20px 40px;
+  height: ~'calc(100vh - 204px)'; // height: 656px;
+  overflow-y: auto;
+  .work-bench-body-category {
+    height: auto;
+    &__header {
+      padding-left: 10px;
+      display: flex;
+      align-items: center;
+    }
+    &__prefix {
+      width: 10px;
+      height: 18px;
+      display: inline-block;
+      background: @primary-color;
+      margin-right: 8px;
+    }
+    &__title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    &__apps {
+      text-align: left;
+    }
+  }
+}
+
+.home-workbench-with-header {
+  height: ~'calc(100vh - 290px)';
+}
+
+.home-workbench-app-wrapper {
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  margin-top: 30px;
+  line-height: normal;
+}

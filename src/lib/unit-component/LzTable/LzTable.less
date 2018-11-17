@@ -1,0 +1,204 @@
+@import '../../../styles/variables.less';
+.lz-table {
+  // padding: 0 20px 20px;
+  overflow: hidden;
+  border-radius: @border-radius-1;
+  transition: 0.2s;
+  background: #fff;
+  &.border-top {
+    border-top: 1px solid @border-color;
+  }
+  .adv-search-hide {
+    display: none;
+  }
+  .inline-edit-btn {
+    .iconfont {
+      color: @primary-color;
+      margin: 0 4px;
+      cursor: pointer;
+    }
+    .cancel {
+      color: @delete-cancel;
+    }
+  }
+  .start-operation {
+    cursor: pointer;
+    &.del {
+      color: @delete-cancel;
+    }
+  }
+  .icon-default-nodata {
+    font-size: 50px;
+    color: @bg-color-1;
+  }
+  .render-forms-form-wrap {
+    margin-top: 20px;
+    border: 1px solid @border-color;
+    border-radius: @border-radius-1;
+    .lz-form-header-wrap {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+    .value {
+      margin: 0 4px;
+    }
+  }
+}
+
+.lz-table-header {
+  height: 50px;
+  line-height: 50px; // text-indent: 20px;
+  overflow: hidden;
+  .btn {
+    font-size: 20px;
+    float: right;
+    line-height: 50px;
+    margin-right: 20px;
+    color: @primary-color;
+    cursor: pointer;
+    &.icon-export {
+      margin-right: 30px;
+    }
+  }
+}
+
+.operation-btn {
+  margin: 4px;
+}
+
+.operation-btn.del,
+.slide-operation .del {
+  color: #ff4346;
+}
+
+.lz-table-op {
+  margin: 4px 0;
+  padding: 8px;
+  .header-btn {
+    margin: 0 4px;
+  }
+}
+
+/* expand */
+
+.lz-table-td {
+  text-align: center;
+}
+
+/* 让 td 标签文字溢出时，显示省略号 */
+
+table {
+  table-layout: fixed;
+  /* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+}
+
+// td {
+//   width: 100%;
+//   word-break: keep-all;
+//   /* 不换行 */
+//   white-space: nowrap;
+//   /* 不换行 */
+//   overflow: hidden;
+//   /* 内容超出宽度时隐藏超出部分的内容 */
+//   text-overflow: ellipsis;
+//   /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+// }
+
+.col-merge td {
+  overflow: visible;
+  text-overflow: none;
+}
+
+.col-merge td div {
+  overflow: visible;
+  text-overflow: none;
+}
+
+.lz-editable-row .ant-form-item-control-wrapper {
+  float: none;
+  margin: 0 auto;
+}
+
+/* lz-card */
+
+.lz-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lz-card {
+  border: 1px solid #e5e5e5;
+  width: 245px;
+  margin: 20px;
+  transition: 0.3s;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.lz-card .line {
+  height: 1px;
+  margin: 10px;
+  background: #e5e5e5;
+}
+
+.lz-card:hover {
+  // box-shadow: -1px 8px 10px 0px #dad9dd;
+}
+
+.lz-card .img-wrap {
+  width: 225px;
+  height: 225px;
+  overflow: hidden;
+  margin: 10px auto;
+  line-height: 225px;
+  /* border: 1px solid #e5e5e5; */
+  font-size: 0;
+  border-radius: 2px;
+}
+
+.lz-card img {
+  display: inline-block;
+  width: 225px;
+}
+
+.lz-card h2 {
+  text-align: center;
+  margin: 10px;
+  font-size: 14px;
+}
+
+.lz-card p {
+  height: 36px;
+  margin: 10px;
+  font-size: 12px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.lz-card .btns {
+  height: 36px;
+  margin: 10px;
+  text-align: center;
+}
+
+.lz-card .btn {
+  margin: 0 4px;
+}
+
+/* forms */
+
+.forms {
+  width: 600px;
+  margin: 20px auto;
+  background: #fff;
+}
+
+// 固定表头
+.lz-table__expand-sub-table {
+  .ant-table-fixed-right .ant-table-header,
+  .ant-table-fixed-left .ant-table-header {
+    opacity: 1;
+    margin-bottom: -35px;
+  }
+}

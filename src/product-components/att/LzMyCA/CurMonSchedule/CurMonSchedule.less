@@ -1,0 +1,24 @@
+@import url('../../../../styles/variables.less');
+.cur-mon-schedule {
+  &__time {
+    font-size: 12px;
+    color: #ff8d05;
+  }
+  &__type {
+    font-weight: bold;
+    text-align: right;
+    &--rest {
+      color: #259224;
+    }
+    &--work {
+      color: @primary-color;
+    }
+  }
+  .ant-fullcalendar-header {
+    display: none;
+  }
+  .ant-fullcalendar-last-month-cell,
+  .ant-fullcalendar-next-month-btn-day {
+    visibility: hidden;
+  }
+}

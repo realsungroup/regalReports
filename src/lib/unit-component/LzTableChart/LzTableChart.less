@@ -1,0 +1,52 @@
+@import '../../../styles/variables.less';
+.lz-table-chart {
+  border-radius: @border-radius-1;
+  overflow: hidden;
+  padding: 0 20px 20px;
+  transition: 0.2s;
+  box-shadow: @box-shadow;
+  .operation {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid @border-color;
+  }
+  .operation .item {
+    display: inline-block;
+    margin: 0 2px;
+  }
+  .table-chart-wrap {
+    position: relative;
+  }
+  .chart-wrap {
+    width: '100%';
+    position: relative;
+    z-index: 10;
+    .icon-full-screen {
+      font-size: 30px;
+      color: @primary-color;
+      position: absolute;
+      right: 20px;
+      top: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+.lz-tablechart-header {
+  .btn {
+    float: right;
+    line-height: 50px;
+    margin-right: 20px;
+    color: @primary-color;
+    cursor: pointer;
+  }
+}
+
+.table-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.lz-table-chart-modal .ant-modal-body {
+  padding: 0;
+}

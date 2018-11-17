@@ -1,0 +1,41 @@
+@import (reference) '../../styles/variables.less';
+.app-lock-screen-wrap {
+  background: #4672ae;
+}
+
+.app-lock-screen {
+  position: relative;
+  top: -100px;
+  .icon-lock-logo {
+    font-size: 66px;
+    color: @primary-color;
+    z-index: 0;
+    position: relative;
+  }
+  &__logo {
+    text-align: center;
+  }
+  &__username {
+    color: #fff;
+    text-align: center;
+    position: relative;
+    top: -10px;
+  }
+  &__input {
+    position: relative;
+  }
+  &__submit {
+    position: absolute;
+    right: -28px;
+    top: 0;
+  }
+  &__logo-bg {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    position: absolute;
+    background: #fff;
+    left: 77px;
+    top: 21px;
+  }
+}

@@ -1,0 +1,54 @@
+@import url('../../../styles/variables.less');
+.half-panel {
+  display: inline-block;
+  width: 45%;
+  vertical-align: top;
+  margin-top: 22px;
+}
+
+.half-panel:first-child {
+  margin-right: 20px;
+}
+
+.half-panel:last-child {
+  margin-left: 20px;
+}
+
+.half-panel-title {
+  margin: 8px 0;
+  font-size: large;
+  font-weight: bold;
+  text-align: left;
+}
+
+.half-panel-title::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.vertical-bar {
+  width: 6px;
+  height: 26px;
+}
+
+.half-panel-title-icon-default,
+.vertical-bar,
+.half-panel-title-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.half-panel-title-icon-default,
+.vertical-bar {
+  margin-right: 4px;
+  height: 1em;
+}
+
+.half-panel-title-icon-default {
+  height: 1em;
+  width: 5px;
+  margin-right: 8px;
+  background: @primary-color;
+}

@@ -1,0 +1,37 @@
+@import url('../../../styles/variables.less');
+.lz-work-overtime {
+  padding-top: 20px;
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__time-tag {
+    background: @primary-color;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    i {
+      margin-right: 4px;
+    }
+  }
+  &__card {
+    width: 45%;
+    margin-top: 20px;
+  }
+  &__cards-extra {
+    color: @primary-color;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  &__cards-content {
+    display: flex;
+    justify-content: space-between;
+    line-height: 30px;
+    font-size: 16px;
+    span:last-child {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}

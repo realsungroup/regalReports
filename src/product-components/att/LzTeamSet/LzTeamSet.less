@@ -1,0 +1,39 @@
+@import url('../../../styles/variables.less');
+.lz-team-set {
+  &__date {
+    font-size: 18px;
+  }
+  &__extra {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .iconfont {
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
+  &__type {
+    text-align: right;
+    font-size: 14px;
+    &--rest {
+      color: #259224;
+    }
+    &--work {
+      color: @primary-color;
+    }
+  }
+  &__header-extra {
+    height: 100%;
+    width: 100%;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    .iconfont {
+      font-size: 20px;
+      margin-right: 24px;
+      cursor: pointer;
+    }
+  }
+}

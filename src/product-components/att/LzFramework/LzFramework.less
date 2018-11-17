@@ -1,0 +1,34 @@
+@import url('../../../styles/variables.less');
+.lz-steps {
+  padding: 20px;
+  height: 100%;
+  &__content {
+    width: 100%;
+    height: 82%;
+    margin-top: 20px;
+    overflow: auto;
+  }
+  &__1 {
+    height: 98%;
+    &.show {
+      display: block;
+    }
+    &.hide {
+      display: none;
+    }
+  }
+  &__btns {
+    text-align: right;
+    button {
+      margin: 0 4px;
+    }
+  }
+  .ant-spin-nested-loading,
+  .ant-spin-container {
+    height: 100%;
+  }
+}
+
+.get-org-chart .get-oc-tb a.get-minus {
+  margin-right: 45px;
+}

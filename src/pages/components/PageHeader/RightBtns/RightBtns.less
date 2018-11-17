@@ -1,0 +1,55 @@
+@import url('../../../../styles/variables.less');
+.input-pass1 .pass1 {
+  margin-top: 20px;
+}
+.input-pass1 .input-pass {
+  height: 40px;
+}
+.btn-submit {
+  width: 100%;
+  height: 40px;
+  color: white;
+  font-size: 14px;
+  margin: 0px 0 20px 0;
+}
+.right-btns {
+  &__to-more-btns-icon {
+    transition: 0.5s;
+  }
+  &__to-less-btns-icon {
+    transform: rotate(180deg);
+  }
+
+  &__left-btns,
+  &__right-btns {
+    transition: 0.5s;
+    display: inline-block;
+  }
+  &__left-btns {
+  }
+  &__right-btns {
+    display: none;
+    &.to-more-btns-status {
+      display: inline-block;
+    }
+  }
+  &__about-modal {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    .icon-logo {
+      font-size: 50px;
+      color: @primary-color;
+      margin-left: -18px;
+    }
+  }
+  &__about-modal-content {
+    display: flex;
+    align-items: center;
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

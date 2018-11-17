@@ -1,0 +1,48 @@
+@import '../../../styles/variables.less';
+.lz-navigate {
+  width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+  .navigate-card {
+    font-size: 18px;
+    margin: 0 20px;
+    float: left;
+    .navigate-list-wrap {
+      width: 440px;
+      height: 414px;
+      border-radius: @border-radius-1;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 40px 0;
+      overflow: auto;
+    }
+    .navigate-bar {
+      width: 220px;
+      height: 40px;
+      line-height: 40px;
+      background: @primary-color;
+      color: #fff;
+      border-radius: @border-radius-4;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .navigate-card-title {
+      font-weight: bold;
+      margin: 18px 0;
+      position: relative;
+      text-indent: 15px;
+      &::before {
+        content: '';
+        width: 5px;
+        height: 18px;
+        position: absolute;
+        left: 0;
+        top: 4px;
+        background: @primary-color;
+      }
+    }
+  }
+}

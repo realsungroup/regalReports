@@ -1,0 +1,138 @@
+@import url('../../../../../../styles/variables.less');
+.home-task-item {
+  width: 100%;
+  margin-bottom: 20px;
+  .status {
+    margin-left: 10px;
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    border: 1px solid @primary-color;
+    border-radius: 10px;
+    text-align: center;
+    color: @primary-color;
+  }
+  .tasks-count {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    border: solid 1px @primary-color;
+    color: @primary-color;
+    margin-top: 1px;
+  }
+}
+
+.home-task-item-icon {
+  display: inline-block;
+  .iconfont {
+    color: @primary-color;
+  }
+}
+
+.home-task-item-content {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.home-task-item-link {
+  margin-top: 40px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.home-task-item-icon {
+  width: 12%;
+  text-align: center;
+}
+
+.home-task-item-icon .iconfont {
+  font-size: 28px;
+}
+
+.home-task-item-content {
+  width: 65%;
+  padding: 0 8px;
+}
+
+.home-task-item-top-row {
+  margin: 8px 0;
+}
+
+.home-task-item-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.home-task-item-title,
+.home-task-item-todo {
+  display: inline-block;
+}
+
+.home-task-item-todo {
+  float: right;
+  position: relative;
+}
+
+.home-task-item-todo-img {
+  height: 1.3em;
+}
+
+.home-task-item-todo-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: rgb(226, 20, 124);
+  color: #fff;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  white-space: nowrap;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+}
+
+.home-task-item-desc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.8;
+  margin: 8px 0;
+}
+
+.home-task-item-link {
+  width: 20%;
+  padding-left: 30px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.home-task-item-detail,
+.icon-forward {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.icon-forward {
+  margin-left: 10px;
+}
+
+.home-task-item-detail {
+  color: #999;
+  text-align: center;
+  margin-right: 20%;
+  cursor: pointer;
+}
+
+.home-task-item-detail-icon {
+  height: 1.5em;
+}
+
+.home-task-item-detail-arrow {
+  height: 1.8em;
+  cursor: pointer;
+}
