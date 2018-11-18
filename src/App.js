@@ -80,7 +80,7 @@ class App extends Component {
           <IntlProvider locale={locale} messages={messages}>
             <Router>
               <Switch>
-                <PrivateRoute
+                <Route
                   exact
                   path="/:resid/:accessToken/:userCode/:theme/:name"
                   component={CheckIn}
