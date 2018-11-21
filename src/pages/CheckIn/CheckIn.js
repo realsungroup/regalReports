@@ -13,9 +13,13 @@ class CheckIn extends React.Component {
   }
 
   componentDidMount = () => {
-    const { userCode, accessToken, theme, name } = this.props.match.params;
-    console.log('theme:', theme);
-    console.log('typeof theme:', typeof theme);
+    let params = new URLSearchParams(window.location.search);
+
+    const userCode = params.get('userCode');
+    const accessToken = params.get('accessToken');
+    const theme = params.get('theme');
+    const title = params.get('title');
+
     localStorage.setItem(
       'userInfo',
       JSON.stringify({
@@ -28,7 +32,7 @@ class CheckIn extends React.Component {
         '@primary-color': theme
       });
     }
-    this.setState({ name });
+    this.setState({ name: title });
   };
 
   setThemeColor = themeColor => {
