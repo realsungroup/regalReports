@@ -63,6 +63,7 @@ class CheckIn extends React.Component {
             pagination={{ current: 0, pageSize: 10 }}
             isSortBE
             hasDownloadExcel
+            tableSize="small"
             advSearchConfig={{
               containerName: 'drawer', // 高级搜索所在容器的名字：'normal' 在表格里面；'drawer' 在抽屉容器里面
               defaultVisible: false, // 默认是否显示

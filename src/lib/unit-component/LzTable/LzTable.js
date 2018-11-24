@@ -1692,7 +1692,7 @@ class LzTable extends React.Component {
         dataIndex: column.id,
         key: column.id,
         width: this.widths[column.text],
-        align: 'center',
+        align: 'left',
         isEditableCell: true // 是否是可以编辑的单元格
       };
       // 开启了后端排序功能且当前列可以排序
