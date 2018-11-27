@@ -46,6 +46,22 @@ export const defaultLogin = async (code, password) => {
   return http(url, POST, params, dataType.LoginDefaultEM);
 };
 
+/**
+ * 导出表格数据
+ * @param {number} resid 表资源id
+ * @param {string} cmswhere 查询条件
+ * @param {string} filetype 导出文件格式（默认 xls）
+ */
+export const exportTableData = (resid, cmswhere, filetype = 'xls') => {
+  const url = baseUrl + 'api/100/table/ExportTableData';
+  const params = {
+    resid,
+    cmswhere,
+    filetype
+  };
+  return dealNextExtractData(http(url, GET, params, dataType.UnKnow));
+};
+
 // 域登录
 export const domainLogin = async (code, password, domain, domainUserField) => {
   let url = window.domainLogin.baseUrl + path.login;

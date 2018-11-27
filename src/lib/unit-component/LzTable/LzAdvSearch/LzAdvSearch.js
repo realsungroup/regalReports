@@ -226,10 +226,10 @@ export default class LzAdvSearch extends React.Component {
       arr.push({
         min: cloneDeep(values[0])
           .startOf('day')
-          .format('YYYY-MM-DD HH:mm:ss'),
+          .format('YYYY-MM-DD'),
         max: cloneDeep(values[1])
           .endOf('day')
-          .format('YYYY-MM-DD HH:mm:ss')
+          .format('YYYY-MM-DD')
       });
     }
     let where = '';

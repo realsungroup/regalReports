@@ -29,7 +29,7 @@ import {
   dealButton,
   modSubRecord
 } from '../../util/api';
-import { getFormData } from 'Util/api';
+import { getFormData, exportTableData } from 'Util/api';
 import LzFormModalContainer from '../components/LzFormModalContainer';
 import dealControlArr, { dealFormData } from 'Util/controls';
 import { EditableContext, EditableFormRow } from './LzEditableFormRow';
@@ -38,7 +38,6 @@ import LzAdvSearch from './LzAdvSearch';
 import { clone, getToken } from '../../util/util';
 import { FormattedMessage } from 'react-intl';
 import { LzForm } from '../../../loadableComponents';
-import exportJsonExcel from 'js-export-excel';
 import './LzTable.less';
 import { extractAndDealBackendBtns, filterBackEndBtns } from 'Util/backendBtns';
 import LzBackendBtn from '../components/LzBackendBtn';
@@ -51,10 +50,11 @@ import {
   LzStepsSc,
   LzStepsOt,
   LzStepsPi,
-  LzStepsMAP,
-  LzMyCA
+  LzStepsMAP
 } from '../../../product-components/att/loadableComponents';
 import LzImportData from './LzImportData';
+import IconWithTooltip from '../../../pages/components/IconWithTooltip';
+import { downloadFile } from 'Util/util';
 
 const Search = Input.Search;
 let controlData;
@@ -1390,24 +1390,25 @@ class LzTable extends React.Component {
     this.setState({ tableInnerHeight });
   };
 
-  getData = () => {
+  getData = async () => {
     const { editableRow, isBackEndBtnsVisible } = this.props;
+    this.setState({ loading: true });
 
-    // 获取表格数据
-    this.getTableData();
-
-    // 根据窗体名称获取窗体设计数据
-    this.getFormData();
+    let promiseArr = [this.getTableData(), this.getFormData()];
 
     // 开启了行内编辑功能
     if (editableRow) {
-      this.getColumnsDefine();
+      promiseArr.push(this.getColumnsDefine());
     }
 
     // 显示后端自定义功能按钮
     if (isBackEndBtnsVisible) {
-      this.getButtons();
+      promiseArr.push(this.getButtons());
     }
+
+    await Promise.all(promiseArr);
+
+    this.setState({ loading: false });
   };
 
   /**
@@ -1422,7 +1423,6 @@ class LzTable extends React.Component {
    * FormName：窗体名称
    */
   getButtons = async () => {
-    this.setState({ loading: true });
     const { dataMode, resid, subresid, backendBtnsVisible } = this.props;
     let res, id;
     if (dataMode === 'main') {
@@ -1453,8 +1453,7 @@ class LzTable extends React.Component {
     this.setState({
       backEndBtnsMultiple,
       backEndBtnsSingle,
-      rowSelection,
-      loading: false
+      rowSelection
     });
   };
 
@@ -1471,7 +1470,6 @@ class LzTable extends React.Component {
   // 获取的列定义数据只用于行内编辑
   columnsDefineData = [];
   getColumnsDefine = async () => {
-    this.setState({ loading: true });
     try {
       let id;
       if (this.props.dataMode === 'main') {
@@ -1482,10 +1480,10 @@ class LzTable extends React.Component {
       const res = await getColumnsDefine(id);
       this.columnsDefineData = res.data;
     } catch (err) {
-      console.error(err);
-      message.error(err.message);
+      this.setState({ loading: false });
+
+      return message.error(err.message);
     }
-    this.setState({ loading: false });
   };
 
   // 可操作的控件（用于行内编辑）
@@ -1498,7 +1496,6 @@ class LzTable extends React.Component {
   }; // 表单窗体设计数据
   // 获取窗体设计数据
   getFormData = async () => {
-    this.setState({ loading: true });
     const { dataMode, formsName, resid, subresid } = this.props;
     // 获取表 id
     let id;
@@ -1510,10 +1507,16 @@ class LzTable extends React.Component {
     // 获取窗体设计数据
     let res, formFormData;
     if (typeof formsName === 'object') {
-      res = await Promise.all([
-        getFormData(id, formsName.rowFormName),
-        getFormData(id, formsName.formFormName)
-      ]);
+      try {
+        res = await Promise.all([
+          getFormData(id, formsName.rowFormName),
+          getFormData(id, formsName.formFormName)
+        ]);
+      } catch (err) {
+        this.setState({ loading: false });
+
+        return message.error(err.message);
+      }
       res.forEach((item, index) => {
         formFormData = dealControlArr(item.data.columns);
         if (index === 0) {
@@ -1524,12 +1527,18 @@ class LzTable extends React.Component {
         this.formFormData = clone(formFormData);
       });
     } else if (typeof formsName === 'string') {
-      res = await getFormData(id, formsName);
+      try {
+        res = await getFormData(id, formsName);
+      } catch (err) {
+        this.setState({ loading: false });
+
+        return message.error(err.message);
+      }
       formFormData = dealControlArr(res.data.columns);
       this.formFormData = clone(formFormData);
       this.canOpControlArr = formFormData.canOpControlArr;
     }
-    this.setState({ formFormData, loading: false });
+    this.setState({ formFormData });
   };
 
   /**
@@ -1873,7 +1882,7 @@ class LzTable extends React.Component {
       },
       ...options
     };
-    this.setState({ loading: true });
+
     let res;
     // 主表数据
     if (this.props.dataMode === 'main') {
@@ -1944,7 +1953,8 @@ class LzTable extends React.Component {
         ...{
           pageSize: options.pageSize,
           current: options.current + 1,
-          total: res.total
+          total: res.total,
+          showTotal: total => <div>总共 {total} 条记录</div>
         }
       };
     }
@@ -1957,7 +1967,6 @@ class LzTable extends React.Component {
           tableData,
           originTableData,
           originOrderTableData: originOrderTableData || [],
-          loading: false,
           key: options.key
         },
         pagination ? { pagination } : {}
@@ -2786,7 +2795,7 @@ class LzTable extends React.Component {
 
   wheres = '';
   // 高级搜索条件发生改变
-  conditionChange = wheres => {
+  conditionChange = async wheres => {
     this.wheres = wheres;
     const { pagination } = this.state;
     let o = {};
@@ -2794,7 +2803,9 @@ class LzTable extends React.Component {
       o.current = 0;
       o.pageSize = pagination.pageSize;
     }
-    this.getTableData(o, wheres);
+    this.setState({ loading: true });
+    await this.getTableData(o, wheres);
+    this.setState({ loading: false });
   };
 
   renderAddBtn = () => {
@@ -2857,33 +2868,19 @@ class LzTable extends React.Component {
     });
   };
 
-  downloadExcel = () => {
-    const { tableData } = this.state;
-    const { tableTitle } = this.props;
-    let { columns } = this.getColumns();
-
-    columns = columns.filter(column => column.title !== '操作');
-
-    const sheetHeader = columns.map(column => column.title);
-    const dataIndex = columns.map(column => column.dataIndex);
-
-    const sheetData = tableData.map(record =>
-      dataIndex.map(item => record[item])
+  downloadExcel = async () => {
+    this.setState({ loading: true });
+    let res;
+    try {
+      res = await exportTableData(this.props.resid, this.wheres);
+    } catch (err) {
+      return message.error(err.message);
+    }
+    downloadFile(
+      window.powerWorks.fileDownloadUrl + res.data,
+      this.props.tableTitle + '.xls'
     );
-
-    const columnWidths = columns.map(() => 10);
-    const option = {
-      datas: [
-        {
-          sheetHeader,
-          sheetName: tableTitle,
-          sheetData,
-          columnWidths
-        }
-      ]
-    };
-    const toExcel = new exportJsonExcel(option);
-    toExcel.saveExcel();
+    this.setState({ loading: false });
   };
 
   openProductComponent = componentInfo => {
@@ -2911,17 +2908,6 @@ class LzTable extends React.Component {
             {unitModalVisible && (
               <LzModal onClose={this.onCloseLzModal}>
                 <LzMenuForms record={record} {...unitBtnInfo.props} />
-              </LzModal>
-            )}
-          </Fragment>
-        );
-      }
-      case 'LzMyCA': {
-        return (
-          <Fragment>
-            {unitModalVisible && (
-              <LzModal onClose={this.onCloseLzModal}>
-                <LzMyCA record={record} {...unitBtnInfo.props} />
               </LzModal>
             )}
           </Fragment>
@@ -3065,15 +3051,22 @@ class LzTable extends React.Component {
 
   renderDownloadExcelBtn = () => {
     return (
-      <i className="btn iconfont icon-export" onClick={this.downloadExcel} />
+      <IconWithTooltip
+        tip="导出数据"
+        className="btn"
+        iconClass="icon-export"
+        onClick={this.downloadExcel}
+      />
     );
   };
 
   renderProductComponentBtns = () => {
     return this.props.productComponents.map(item => (
-      <i
+      <IconWithTooltip
+        tip="批量添加"
         key={item.iconClass}
-        className={classNames('btn iconfont', item.iconClass)}
+        className="btn"
+        iconClass={item.iconClass}
         onClick={() => this.openProductComponent(item.componentInfo)}
       />
     ));
@@ -3081,8 +3074,10 @@ class LzTable extends React.Component {
 
   renderAdvSearchBtn = () => {
     return (
-      <i
-        className="btn iconfont icon-adv-search"
+      <IconWithTooltip
+        tip="高级搜索"
+        className="btn"
+        iconClass="icon-adv-search"
         onClick={() => {
           this.setState({
             advSearchVisible: true
@@ -3104,8 +3099,10 @@ class LzTable extends React.Component {
   renderImportBtn = () => {
     return (
       <Fragment>
-        <i
-          className="btn iconfont icon-import"
+        <IconWithTooltip
+          tip="导入数据"
+          className="btn"
+          iconClass="icon-import"
           onClick={() =>
             this.setState({
               importDataModalVisible: !this.state.importDataModalVisible
