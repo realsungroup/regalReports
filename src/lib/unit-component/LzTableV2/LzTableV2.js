@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Table, message, DatePicker } from 'antd';
+import { Table, message, DatePicker, Input } from 'antd';
 import './LzTableV2.less';
 import { getProcedure } from 'Util/api';
 import moment from 'moment';
@@ -8,6 +8,7 @@ import IconWithTooltip from '../../../pages/components/IconWithTooltip';
 import exportJsonExcel from 'js-export-excel';
 
 const { RangePicker } = DatePicker;
+const Search = Input.Search;
 
 /**
  * LzSteps 组件
@@ -37,7 +38,8 @@ export default class LzTableV2 extends React.Component {
       startDate,
       endDate,
       loading: false,
-      pagination
+      pagination,
+      searchVal: ''
     };
   }
 
@@ -126,7 +128,7 @@ export default class LzTableV2 extends React.Component {
   };
 
   getParaValues = () => {
-    const { startDate, endDate } = this.state;
+    const { startDate, endDate, searchVal } = this.state;
     if (!startDate || !endDate) {
       return;
     }
@@ -137,7 +139,9 @@ export default class LzTableV2 extends React.Component {
       ',' +
       endDate.format('YYYYMMDD') +
       ',' +
-      userCode;
+      userCode +
+      ',' +
+      searchVal;
     return str;
   };
 
@@ -195,6 +199,12 @@ export default class LzTableV2 extends React.Component {
     toExcel.saveExcel();
   };
 
+  handleSearch = value => {
+    this.setState({ searchVal: value }, () => {
+      this.getData(0, this.state.pagination.pageSize);
+    });
+  };
+
   render() {
     const {
       tableData,
@@ -215,11 +225,19 @@ export default class LzTableV2 extends React.Component {
             onClick={this.handleExportBtnClick}
           />
         </div>
-        <RangePicker
-          onChange={this.handleRangePickerChange}
-          style={{ marginBottom: 20 }}
-          value={[startDate, endDate]}
-        />
+        <div>
+          <Search
+            style={{ width: 200, margin: '0 10px' }}
+            placeholder="请输入值"
+            onSearch={this.handleSearch}
+            enterButton="搜索"
+          />
+          <RangePicker
+            onChange={this.handleRangePickerChange}
+            style={{ marginBottom: 20 }}
+            value={[startDate, endDate]}
+          />
+        </div>
         <Table
           pagination={pagination ? pagination : false}
           loading={loading}

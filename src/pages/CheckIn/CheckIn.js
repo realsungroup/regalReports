@@ -59,8 +59,8 @@ class CheckIn extends React.Component {
         <LzTableV2
           resid={595860351148}
           procedure="dbo.Pro_SumOfDailyRecord"
-          paranames="@dates1,@dates2,@userid"
-          paratypes="string,string,string"
+          paranames="@dates1,@dates2,@userid,@key"
+          paratypes="string,string,string,string"
           pagination={{
             current: 0,
             pageSize: 10
