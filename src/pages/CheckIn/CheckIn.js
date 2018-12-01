@@ -1,5 +1,5 @@
 import React from 'react';
-import { LzTable } from '../../loadableComponents';
+import { LzTable, LzTableV2 } from '../../loadableComponents';
 import { withRouter } from 'react-router-dom';
 import { message } from 'antd';
 
@@ -54,6 +54,20 @@ class CheckIn extends React.Component {
 
   render() {
     const { resid } = this.state;
+    if (this.state.name === '考勤月报') {
+      return (
+        <LzTableV2
+          resid={595860351148}
+          procedure="dbo.Pro_SumOfDailyRecord"
+          paranames="@dates1,@dates2,@userid"
+          paratypes="string,string,string"
+          pagination={{
+            current: 0,
+            pageSize: 10
+          }}
+        />
+      );
+    }
     return (
       <div>
         <h1>{this.state.name}</h1>

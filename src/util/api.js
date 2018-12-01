@@ -260,6 +260,29 @@ export const getMainTableData = (resid, options = {}) => {
   return dealNextExtractData(http(url, GET, params, dataType.HostTableDataEM));
 };
 
+// 获取 "表格" 数据
+export const getProcedure = (
+  resid,
+  procedure,
+  paranames,
+  paratypes,
+  paravalues,
+  pageindex,
+  pagesize
+) => {
+  const url = baseUrl + 'api/200/table/RetrieveProcedure';
+  const params = {
+    resid,
+    procedure,
+    paranames,
+    paratypes,
+    paravalues,
+    pageindex,
+    pagesize
+  };
+  return dealNextExtractData(http(url, GET, params, dataType.HostTableDataEM));
+};
+
 // 获取子表数据
 export const getSubTableData = (resid, subresid, hostrecid, options = {}) => {
   const url = baseUrl + appConfig.path.getSubData;

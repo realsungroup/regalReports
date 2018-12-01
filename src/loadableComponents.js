@@ -69,6 +69,13 @@ export const LzTable = Loadable({
   }
 });
 
+export const LzTableV2 = Loadable({
+  loader: () => import('./lib/unit-component/LzTableV2'),
+  loading() {
+    return minLoading;
+  }
+});
+
 export const LzTableChart = Loadable({
   loader: () => import('./lib/unit-component/LzTableChart'),
   loading() {
