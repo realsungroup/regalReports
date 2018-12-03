@@ -2,6 +2,7 @@ import React from 'react';
 import { LzTable, LzTableV2 } from '../../loadableComponents';
 import { withRouter } from 'react-router-dom';
 import { message } from 'antd';
+import 'url-search-params-polyfill';
 
 class CheckIn extends React.Component {
   constructor(props) {

@@ -75,17 +75,15 @@ class App extends Component {
     }
     console.log('userInfo');
     return (
-      <NonsupportIE reminder={Reminder}>
-        <LocaleProvider locale={localeAntd}>
-          <IntlProvider locale={locale} messages={messages}>
-            <Router>
-              <Switch>
-                <Route exact path="/" component={CheckIn} />
-              </Switch>
-            </Router>
-          </IntlProvider>
-        </LocaleProvider>
-      </NonsupportIE>
+      <LocaleProvider locale={localeAntd}>
+        <IntlProvider locale={locale} messages={messages}>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={CheckIn} />
+            </Switch>
+          </Router>
+        </IntlProvider>
+      </LocaleProvider>
     );
   }
 }
