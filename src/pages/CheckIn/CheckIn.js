@@ -66,6 +66,24 @@ class CheckIn extends React.Component {
             current: 0,
             pageSize: 10
           }}
+          fixedCols={['考勤年月', '姓名']}
+          customColumnWidth={{
+            考勤年月: 100,
+            姓名: 100,
+            工号: 100,
+            部门名称: 250,
+            一级部门: 100,
+            岗位: 100,
+            '管理/工人': 100,
+            成本中心2: 100,
+            刷卡旷工: 100,
+            中班次数: 100,
+            晚班次数: 100,
+            平时加班: 100,
+            周末加班: 100,
+            节日加班: 100,
+            离职日期: 100
+          }}
         />
       );
     }
@@ -79,6 +97,15 @@ class CheckIn extends React.Component {
             isSortBE
             hasDownloadExcel
             tableSize="small"
+            customColumnWidth={{
+              考勤日期: 100,
+              工号: 100,
+              姓名: 100,
+              部门名称: 250,
+              一级部门: 100,
+              岗位: 100
+            }}
+            fixedCols={['考勤日期', '姓名']}
             advSearchConfig={{
               containerName: 'drawer', // 高级搜索所在容器的名字：'normal' 在表格里面；'drawer' 在抽屉容器里面
               defaultVisible: false, // 默认是否显示

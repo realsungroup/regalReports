@@ -112,6 +112,7 @@ export default class LzTableV2 extends React.Component {
   };
 
   getColumns = columns => {
+    const { fixedCols, customColumnWidth } = this.props;
     let arr = [];
     // 数据栏
     columns.forEach(column => {
@@ -119,9 +120,21 @@ export default class LzTableV2 extends React.Component {
         title: column.text,
         dataIndex: column.id,
         key: column.id,
-        width: 200,
+        // width: 200,
         align: 'left'
       };
+
+      // 指定某列的宽度
+      if (customColumnWidth) {
+        if (customColumnWidth[column.text]) {
+          opt.width = customColumnWidth[column.text];
+        }
+      }
+
+      // 固定在左侧的列
+      if (fixedCols && fixedCols.indexOf(column.text) !== -1) {
+        opt.fixed = 'left';
+      }
       arr.push(opt);
     });
     return arr;
