@@ -120,7 +120,7 @@ export default class LzTableV2 extends React.Component {
         title: column.text,
         dataIndex: column.id,
         key: column.id,
-        // width: 200,
+        width: 200,
         align: 'left'
       };
 
