@@ -29,8 +29,8 @@ export default class LzTableV2 extends React.Component {
   constructor(props) {
     super(props);
     const pagination = { ...props.pagination, total: 0 };
-    const startDate = moment().startOf('day');
-    const endDate = moment().endOf('day');
+    const startDate = moment().startOf('month');
+    const endDate = moment();
 
     this.state = {
       tableData: [],
