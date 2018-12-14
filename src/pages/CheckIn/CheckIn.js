@@ -67,9 +67,7 @@ class CheckIn extends React.Component {
             pageSize: 10
           }}
           fixedCols={['考勤年月', '姓名']}
-          customColumnWidth={{
-            
-          }}
+          customColumnWidth={{}}
         />
       );
     }
@@ -85,11 +83,35 @@ class CheckIn extends React.Component {
             tableSize="small"
             customColumnWidth={{
               考勤日期: 100,
-              工号: 100,
+              工号: 150,
               姓名: 100,
               部门名称: 250,
               一级部门: 100,
-              岗位: 100
+              岗位: 100,
+              事假: 100,
+              病假: 100,
+              产假: 100,
+              工伤假: 100,
+              婚假: 100,
+              丧假: 100,
+              护理假: 100,
+              哺乳假: 100,
+              年休假: 100,
+              出差: 100,
+              停工小时: 100,
+              实际出勤小时: 150,
+              迟到: 100,
+              早退: 100,
+              未刷卡旷工: 150,
+              刷卡旷工: 100,
+              应出勤小时: 150,
+              中班次数: 100,
+              晚班次数: 100,
+              平时加班: 100,
+              工休加班: 100,
+              假日加班: 100,
+              班次: 100,
+              调休: 100
             }}
             fixedCols={['考勤日期', '姓名']}
             advSearchConfig={{
