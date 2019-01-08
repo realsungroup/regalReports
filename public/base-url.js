@@ -10,5 +10,5 @@
 /**
  * 考勤管理
  */
-// window.baseUrl = 'http://kingofdinner.realsun.me:8102/';
-window.baseUrl = 'http://172.21.2.27:801/';
+window.baseUrl = 'http://kingofdinner.realsun.me:8102/';
+// window.baseUrl = 'http://172.21.2.27:801/';

@@ -71,6 +71,21 @@ class CheckIn extends React.Component {
         />
       );
     }
+    if(this.state.name === '薪资报表'){
+      return (
+        <LzTableV2
+          resid={599917129968}
+          procedure="dbo.Pro_SumOfDailyRecord2"
+          paranames="@dates1,@dates2,@userid,@key"
+          paratypes="string,string,string,string"
+          pagination={{
+            current: 0,
+            pageSize: 10
+          }}
+          customColumnWidth={{}}
+        />
+      );
+    }
     return (
       <div>
         <h1>{this.state.name}</h1>
