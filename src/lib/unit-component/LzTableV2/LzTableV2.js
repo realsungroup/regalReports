@@ -238,7 +238,7 @@ export default class LzTableV2 extends React.Component {
             onClick={this.handleExportBtnClick}
           />
         </div>
-        <div>
+        <div style={{ display: 'flex' }}>
           <Search
             style={{ width: 200, margin: '0 10px' }}
             placeholder="请输入值"
