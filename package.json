@@ -82,7 +82,8 @@
     "start-js": "node scripts/start.js",
     "build-js": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "c": "git-cz"
+    "c": "git-cz",
+    "add-suffix": "node scripts/addSuffixToPublicJsFile.js"
   },
   "config": {
     "commitizen": {

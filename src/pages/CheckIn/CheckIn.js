@@ -66,7 +66,7 @@ class CheckIn extends React.Component {
             current: 0,
             pageSize: 10
           }}
-          fixedCols={['考勤年月', '姓名']}
+          fixedCols={['工号']}
           customColumnWidth={{}}
         />
       );
@@ -128,7 +128,7 @@ class CheckIn extends React.Component {
               班次: 100,
               调休: 100
             }}
-            fixedCols={['考勤日期', '姓名']}
+            fixedCols={['工号']}
             advSearchConfig={{
               containerName: 'drawer', // 高级搜索所在容器的名字：'normal' 在表格里面；'drawer' 在抽屉容器里面
               defaultVisible: false, // 默认是否显示
