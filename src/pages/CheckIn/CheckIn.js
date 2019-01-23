@@ -128,7 +128,7 @@ class CheckIn extends React.Component {
               班次: 100,
               调休: 100
             }}
-            fixedCols={['工号']}
+            fixedCols={['工号', '考勤日期']}
             advSearchConfig={{
               containerName: 'drawer', // 高级搜索所在容器的名字：'normal' 在表格里面；'drawer' 在抽屉容器里面
               defaultVisible: false, // 默认是否显示
